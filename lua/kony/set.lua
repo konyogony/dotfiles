@@ -2,7 +2,7 @@ vim.cmd.colorscheme("moonfly")
 vim.g.moonflyTerminalColors = true
 vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.number = true                 
+vim.opt.number = true
 vim.opt.relativenumber = true     -- use relative line numbers
 
 
