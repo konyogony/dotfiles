@@ -17,9 +17,9 @@ if [ ! -f ~/.config/hypr/.initial_startup_done ]; then
     # Initialize wallpaper based on the TOOL
     
     # Initilize wallpaper using mpvpaper_cmd
-    $mpvpaper_cmd > /dev/null 2>&1 &
+    # $mpvpaper_cmd > /dev/null 2>&1 &
 
-    # swww query || swww-daemon && $swww_cmd $wallpaper $effect
+    swww query || swww-daemon && $swww_cmd $wallpaper $effect
     
     # initiate GTK dark mode and apply icon and cursor theme
     gsettings set org.gnome.desktop.interface color-scheme $color_scheme > /dev/null 2>&1 &
