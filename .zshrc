@@ -63,4 +63,9 @@ export PATH=$QTDIR/bin:$PATH
 export LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
 export QT_QPA_PLATFORM_PLUGIN_PATH=$QTDIR/plugins
 
+
+export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+
+
+
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
