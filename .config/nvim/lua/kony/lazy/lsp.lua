@@ -48,6 +48,7 @@ return {
 				"clangd",
 				"html",
 				"jdtls",
+				"tailwindcss-language-server",
 			},
 			handlers = {
 				function(server_name)

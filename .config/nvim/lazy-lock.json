@@ -28,6 +28,7 @@
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "presence.nvim": { "branch": "main", "commit": "87c857a56b7703f976d3a5ef15967d80508df6e6" },
   "scope.nvim": { "branch": "main", "commit": "3fc963e75f88990a9467ff72b8eea667a69c30a2" },
+  "tailwind-tools": { "branch": "master", "commit": "2bd8ef6e96d07df83c0b785c40416b98607b2f93" },
   "telescope.nvim": { "branch": "master", "commit": "6312868392331c9c0f22725041f1ec2bef57c751" },
   "vim-illuminate": { "branch": "master", "commit": "19cb21f513fc2b02f0c66be70107741e837516a1" },
   "vim-wakatime": { "branch": "master", "commit": "e46d7c4f98ee0f40782008dd60cb2a79c377fb1d" }
