@@ -1,6 +1,4 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
-# For manually starting xdg-desktop-portal
 
 sleep 1
 killall xdg-desktop-portal-hyprland
@@ -13,4 +11,6 @@ sleep 1
 sleep 2
 /usr/lib/xdg-desktop-portal &
 /usr/libexec/xdg-desktop-portal &
-
+sleep 3
+/usr/lib/xdg-desktop-portal-gnome &
+/usr/libexec/xdg-desktop-portal-gnome &
