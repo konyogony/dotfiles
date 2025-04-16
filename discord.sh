@@ -1,7 +1,7 @@
 #!/bin/bash
-yes | yay -Syy discord-canary --needed
+yes | paru -Syy discord-canary --needed
 
-if yay -Q discord-canary &>/dev/null; then
+if paru -Q discord-canary &>/dev/null; then
     echo "Discord Canary installed successfully."
     vencord_url="https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux"
     vencord_path="$HOME/vencord_installer.sh"

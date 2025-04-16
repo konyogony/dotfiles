@@ -1,6 +1,6 @@
 #!/bin/bash
 scriptsDir=$HOME/.config/hypr/scripts
-wallpaper=$HOME/.config/hypr/wallpaper_effects/.wallpaper_modified
+wallpaper=$HOME/.config/hypr/wallpaper.jpg
 kvantum_theme="Catppuccin-Mocha"
 color_scheme="prefer-dark"
 gtk_theme="Andromeda-dark"
@@ -31,3 +31,16 @@ if [ ! -f ~/.config/hypr/.initial_startup_done ]; then
 fi
 
 # https://wallhaven.cc/
+# https://wallhaven.cc/w/r73pow 8/10
+# https://wallhaven.cc/w/yxz25k 3/10
+# https://wallhaven.cc/w/vq76dp 7/10
+# https://wallhaven.cc/w/9dym6x 8/10
+# https://wallhaven.cc/w/qdzmoq 6/10
+# https://wallhaven.cc/w/5753l8 6/10
+# https://wallhaven.cc/w/r2vrl7 6.5/10
+# https://wallhaven.cc/w/nr9llj 6/10
+# https://wallhaven.cc/w/6drvdq 8/10
+# https://wallhaven.cc/w/g8r373 6/10
+# https://wallhaven.cc/w/gjp1m7 7.5/10
+# https://wallhaven.cc/w/2epdjm 4/10
+# https://wallhaven.cc/w/83ow2y 6/10
