@@ -66,6 +66,6 @@ export QT_QPA_PLATFORM_PLUGIN_PATH=$QTDIR/plugins
 
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 
-
+compdef eza=ls
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
