@@ -1,213 +1,95 @@
 {
-	"layer": "top",
-	"position": "top",
+    "layer": "top",
+    "position": "top", 
+    
+    "modules-left":   ["hyprland/workspaces","hyprland/window"],
+    "modules-center": ["clock","custom/playerctl"],
+    "modules-right":  ["tray","temperature","backlight","pulseaudio","hyprland/language", "network"],
 
-	"modules-left": [
-		"hyprland/mode",
-		"hyprland/workspaces",
-		"custom/arrow10",
-		"hyprland/window"
-	],
+    
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
 
-	"modules-right": [
-		"custom/arrow9",
-		"pulseaudio",
-		"custom/arrow8",
-		"network",
-		"custom/arrow7",
-		"memory",
-		"custom/arrow6",
-		"cpu",
-		"custom/arrow5",
-		"temperature",
-		"custom/arrow4",
-		"custom/arrow3",
-		"hyprland/language",
-		"custom/arrow2",
-		"tray",
-		"clock#date",
-		"custom/arrow1",
-		"clock#time"
-	],
+    "clock#time": {
+        "interval": 1,
+        "format": "  {:%H:%M:%S} ",
+        "tooltip": false
+    },
 
-	// Modules
+    "clock#date": {
+        "interval": 10,
+        "format": "  {:%e %b %y} ",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },  
 
-	"battery": {
-		"interval": 10,
-		"states": {
-			"warning": 30,
-			"critical": 15
-		},
-		"format-time": "{H}:{M:02}",
-		"format": "{icon} {capacity}% ({time})",
-		"format-charging": " {capacity}% ({time})",
-		"format-charging-full": " {capacity}%",
-		"format-full": "{icon} {capacity}%",
-		"format-alt": "{icon} {power}W",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		],
-		"tooltip": false
-	},
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M  %A %b %d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip": true
+    },  
 
-	"clock#time": {
-		"interval": 10,
-		"format": "{:%H:%M}",
-		"tooltip": false
-	},
+    "network": {
+       "interval": 1,
+       "format-wifi": "󰒢 {essid}",
+       "format-ethernet": "󰈀  {ifname}",
+       "format-linked": "󰒢 {essid} (No IP)",
+       "format-disconnected": "󰒢 Disconnected",
+       "format-alt": "{ifname} ({ipaddr})",
+    },
 
-	"clock#date": {
-		"interval": 20,
-		"format": "{:%e %b %Y}",
-		"tooltip": false
-		//"tooltip-format": "{:%e %B %Y}"
-	},
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon} {volume}%", 
+        "format-muted": "󰖁 0%",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-scroll-up": ".config/hypr/scripts/Volume.sh --inc",
+        "on-scroll-down": ".config/hypr/scripts/Volume.sh --dec",
+        "smooth-scrolling-threshold": 5,
+        "tooltip": false,
+        "on-click": ".config/hypr/scripts/Volume.sh --toggle",
+        // "on-click-right": "pavucontrol"
+    },
 
-	"cpu": {
-		"interval": 5,
-		"tooltip": false,
-		"format": " {usage}%",
-		"format-alt": " {load}",
-		"states": {
-			"warning": 70,
-			"critical": 90
-		}
-	},
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 85,
+        "interval": 1,
+        "format": "<span font='12' rise='-2500'>󰔏</span> {temperatureC}°C",
+        "tooltip": false
+    },
+
+    "custom/playerctl": {
+        "format": "<span font='10' rise='-1000'>󰎈</span>  {} ",
+        "format-icons": {
+            "Playing": "󰐊",
+            "Paused": "󰏤"
+        },
+        "escape": true,
+        "return-type": "json",
+        "max-length": 50,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl stop",
+        "smooth-scrolling-threshold": 10,
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{artist}}\", \"tooltip\": \"{{status}} : {{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F" 
+    },
 
 	"hyprland/language": {
 		"format": " {}",
 		"min-length": 5,
-		"on-click": "hyprlandmsg 'input * xkb_switch_layout next'",
 		"tooltip": false
 	},
 
-	"memory": {
-		"interval": 5,
-		"format": " {used:0.1f}G/{total:0.1f}G",
-		"states": {
-			"warning": 70,
-			"critical": 90
-		},
-		"tooltip": false
-	},
-
-	"network": {
-		"interval": 5,
-		"format-wifi": " {essid} ({signalStrength}%)",
-		"format-ethernet": " {ifname}",
-		"format-disconnected": "No connection",
-		"format-alt": " {ipaddr}/{cidr}",
-		"tooltip": false
-	},
-
-	"hyprland/mode": {
-		"format": "{}",
-		"tooltip": false
-	},
-
-	"hyprland/window": {
+    "hyprland/window": {
 		"format": "{}",
 		"max-length": 30,
 		"tooltip": false
 	},
 
-	"hyprland/workspaces": {
-		"disable-scroll-wraparound": true,
-		"smooth-scrolling-threshold": 4,
-		"enable-bar-scroll": true,
-		"format": "{name}"
-	},
-
-	"pulseaudio": {
-		"format": "{icon} {volume}%",
-		"format-bluetooth": "{icon} {volume}%",
-		"format-muted": "",
-		"format-icons": {
-			"headphone": "",
-			"hands-free": "",
-			"headset": "",
-			"phone": "",
-			"portable": "",
-			"car": "",
-			"default": ["", ""]
-		},
-		"scroll-step": 1,
-		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-		"tooltip": false
-	},
-
-	"temperature": {
-		"critical-threshold": 90,
-		"interval": 5,
-		"format": "{icon} {temperatureC}°",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		],
-		"tooltip": false
-	},
-
-	"tray": {
-		"icon-size": 18
-		//"spacing": 10
-	},
-
-	"custom/arrow1": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow2": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow3": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow4": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow5": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow6": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow7": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow8": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow9": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow10": {
-		"format": "",
-		"tooltip": false
-	}
 }
-
-// vi:ft=jsonc
