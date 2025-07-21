@@ -27,12 +27,13 @@ return {
 
 		mason_tool_installer.setup({
 			ensure_installed = {
-				"prettier", -- prettier formatter
-				"stylua", -- lua formatter
-				"isort", -- python formatter
-				"black", -- python formatter
+				"prettier",
+				"stylua",
+				"isort",
+				"black",
 				"pylint",
 				"eslint_d",
+				"php-cs-fixer", -- For PHP formatting
 			},
 		})
 
@@ -46,6 +47,8 @@ return {
 				"html",
 				"jdtls",
 				"tailwindcss-language-server",
+				"cssls",
+				"intelephense", -- PHP Language Server
 			},
 			handlers = {
 				function(server_name)
@@ -53,6 +56,7 @@ return {
 						capabilities = capabilities,
 					})
 				end,
+
 				lua_ls = function()
 					require("lspconfig").lua_ls.setup({
 						capabilities = capabilities,
@@ -73,14 +77,96 @@ return {
 						},
 					})
 				end,
+
+				cssls = function()
+					require("lspconfig").cssls.setup({
+						capabilities = capabilities,
+						settings = {
+							css = {
+								lint = {
+									unknownAtRules = "ignore",
+								},
+							},
+						},
+					})
+				end,
+
+				intelephense = function()
+					require("lspconfig").intelephense.setup({
+						capabilities = capabilities,
+						settings = {
+							intelephense = {
+								licenceKey = "", -- Replace with your license key if you have one
+								stubs = {
+									"bcmath",
+									"bz2",
+									"calendar",
+									"ctype",
+									"curl",
+									"date",
+									"dom",
+									"enchant",
+									"exif",
+									"ffi",
+									"fileinfo",
+									"filter",
+									"ftp",
+									"gd",
+									"gettext",
+									"gmp",
+									"hash",
+									"iconv",
+									"imap",
+									"intl",
+									"json",
+									"ldap",
+									"libxml",
+									"mbstring",
+									"mcrypt",
+									"mssql",
+									"mysqli",
+									"oci8",
+									"odbc",
+									"openssl",
+									"pcntl",
+									"pcre",
+									"pdo",
+									"pgsql",
+									"phar",
+									"posix",
+									"pspell",
+									"readline",
+									"recode",
+									"reflection",
+									"session",
+									"shmop",
+									"SimpleXML",
+									"snmp",
+									"soap",
+									"sockets",
+									"sodium",
+									"spl",
+									"sqlite3",
+									"standard",
+									"tokenizer",
+									"xml",
+									"xmlreader",
+									"xmlrpc",
+									"xmlwriter",
+									"xsl",
+									"zip",
+									"zlib",
+								},
+							},
+						},
+					})
+				end,
 			},
 		})
 
 		local cmp = require("cmp")
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-		-- this is the function that loads the extra snippets to luasnip
-		-- from rafamadriz/friendly-snippets
 		require("luasnip.loaders.from_vscode").lazy_load()
 
 		cmp.setup({
@@ -91,10 +177,7 @@ return {
 				{ name = "buffer", keyword_length = 3 },
 			},
 			mapping = cmp.mapping.preset.insert({
-				-- ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-				-- ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
-				-- ['<C-Space>'] = cmp.mapping.complete(),
 			}),
 			snippet = {
 				expand = function(args)

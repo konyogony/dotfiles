@@ -26,3 +26,4 @@ function toggle_diagnostics_virtual()
 end
 
 vim.keymap.set("n", "<C-d>", toggle_diagnostics_virtual, { desc = "Toggle diagnostics virtual text" })
+vim.keymap.set("n", "x", '"_x', { desc = "Delete character without copying" })

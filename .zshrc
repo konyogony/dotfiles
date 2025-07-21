@@ -69,3 +69,12 @@ export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 compdef eza=ls
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+export PATH="/usr/bin:/home/kony/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/kony/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+eval $(thefuck --alias)
+
+# Created by `pipx` on 2025-05-28 15:18:21
+export PATH="$PATH:/home/kony/.local/bin"
+
+
+
