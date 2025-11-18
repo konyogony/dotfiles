@@ -4,7 +4,7 @@
 		"height":25,
     "modules-left": ["hyprland/workspaces", "custom/icon", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["tray",  "hyprland/language", "pulseaudio", "cpu", "memory", "temperature"],
+    "modules-right": ["tray",  "hyprland/language", "pulseaudio", "cpu", "memory", "disk", "temperature"],
 
 	"custom/icon": {
         "exec": "~/.config/waybar/state",
@@ -16,8 +16,9 @@
     },
     "clock": {
         "tooltip-format": "<big>[{:%Y %B}]</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "[{:%H:%M}]",
-        "format-alt": "[{:%Y-%m-%d}]"
+        "format": "[{:%H:%M:%S}]",
+        "format-alt": "[{:%Y-%m-%d}]",
+        "interval": 1,
     },
     "cpu": {
         "format": "[CPU:{usage}%]",
@@ -47,5 +48,11 @@
 		"min-length": 5,
 		"tooltip": false
 	},
+"disk": {
+    "path": "/",
+    "format": "[DISK:{percentage_used}%]",
+    "interval": 10,
+    "tooltip": false
+}
 }
 

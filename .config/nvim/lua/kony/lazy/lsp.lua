@@ -96,7 +96,7 @@ return {
 						capabilities = capabilities,
 						settings = {
 							intelephense = {
-								licenceKey = "", -- Replace with your license key if you have one
+								licenceKey = "",
 								stubs = {
 									"bcmath",
 									"bz2",

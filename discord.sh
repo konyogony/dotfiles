@@ -16,10 +16,8 @@ if paru -Q discord-canary &>/dev/null; then
         local_modified=""
     fi
 
-    if [ "$local_modified" != "$latest_modified" ]; then
-        curl -L -o "$vencord_path" "$vencord_url"
-        chmod +x "$vencord_path"
-    fi
+    curl -z "$vencord_path" -L -o "$vencord_path" "$vencord_url"
+    chmod +x "$vencord_path"
 
     sudo "$vencord_path" -install -branch canary
     echo "Vencord repair completed."
