@@ -46,6 +46,7 @@ return {
 				"clangd",
 				"html",
 				"jdtls",
+				"ts_ls",
 				"tailwindcss-language-server",
 				"cssls",
 				"intelephense", -- PHP Language Server

@@ -75,3 +75,6 @@ eval $(thefuck --alias)
 
 # Created by `pipx` on 2025-05-28 15:18:21
 export PATH="$PATH:/home/kony/.local/bin"
+
+# For like ZIIT secrets, etc...
+[ -f "$HOME/.zshrc.secrets" ] && source "$HOME/.zshrc.secrets"
