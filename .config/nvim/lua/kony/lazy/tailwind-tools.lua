@@ -1,14 +1,14 @@
 return {
-	"luckasRanarison/tailwind-tools. nvim",
+	"luckasRanarison/tailwind-tools.nvim",
 	name = "tailwind-tools",
 	build = ":UpdateRemotePlugins",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
-		"nvim-telescope/telescope.nvim", -- optional
+		"nvim-telescope/telescope.nvim",
 	},
 	opts = {
 		server = {
-			override = false, -- Disable automatic LSP setup
+			override = false,
 		},
 	},
 }

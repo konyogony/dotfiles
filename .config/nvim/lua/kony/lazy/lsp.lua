@@ -41,7 +41,7 @@ return {
 			ensure_installed = {
 				"eslint",
 				"lua_ls",
-				"rust_analyzer",
+				-- "rust_analyzer",
 				"bashls",
 				"clangd",
 				"html",
@@ -53,6 +53,9 @@ return {
 			},
 			handlers = {
 				function(server_name)
+					if server_name == "rust_analyzer" then
+						return
+					end
 					require("lspconfig")[server_name].setup({
 						capabilities = capabilities,
 					})

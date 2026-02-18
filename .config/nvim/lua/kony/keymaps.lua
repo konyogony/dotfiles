@@ -28,9 +28,9 @@ end
 
 vim.keymap.set("n", "<C-d>", toggle_diagnostics_virtual, { desc = "Toggle diagnostics virtual text" })
 vim.keymap.set("n", "x", '"_x', { desc = "Delete character without copying" })
-vim.keymap.set("n", "K", function()
-	vim.cmd.RustLsp({ "hover", "actions" })
-end, { silent = true, buffer = bufnr })
+-- vim.keymap.set("n", "K", function()
+-- 	vim.cmd.RustLsp({ "hover", "actions" })
+-- end, { silent = true, buffer = bufnr })
 
 vim.api.nvim_set_keymap(
 	"n",
