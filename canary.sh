@@ -1,10 +1,8 @@
 #!/bin/bash
+yes | paru -Syy discord-canary --needed
 
-# 1. Install/Update Discord (Stable)
-yes | paru -Syy discord --needed
-
-if paru -Q discord &>/dev/null; then
-    echo "Discord installed successfully."
+if paru -Q discord-canary &>/dev/null; then
+    echo "Discord Canary installed successfully."
     vencord_url="https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux"
     vencord_path="$HOME/vencord_installer.sh"
 
@@ -21,13 +19,11 @@ if paru -Q discord &>/dev/null; then
     curl -z "$vencord_path" -L -o "$vencord_path" "$vencord_url"
     chmod +x "$vencord_path"
 
-    # 2. Install Vencord to Stable Discord
-    # Removing '-branch canary' defaults it to the stable Discord install
-    sudo "$vencord_path" -install
-    echo "Vencord repair/install completed."
+    sudo "$vencord_path" -install -branch canary
+    echo "Vencord repair completed."
 
-    # 3. Modify the .desktop file
-    desktop_file="/usr/share/applications/discord.desktop"
+    # Modify the .desktop file
+    desktop_file="/usr/share/applications/discord-canary.desktop"
     if [ -f "$desktop_file" ]; then
         echo "Patching .desktop file..."
 
@@ -45,6 +41,6 @@ if paru -Q discord &>/dev/null; then
         echo "Desktop file not found at $desktop_file"
     fi
 else
-    echo "Discord installation failed. Please check your setup."
+    echo "Discord Canary installation failed. Please check your setup."
     exit 1
 fi
