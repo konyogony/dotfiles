@@ -1,12 +1,13 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.6", -- or, branch = '0.1.x',
-	dependencies = { "nvim-lua/plenary.nvim", "tiagovla/scope.nvim" },
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"tiagovla/scope.nvim",
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	},
 	config = function()
-		-- Load the 'scope' extension for telescope
 		require("telescope").load_extension("scope")
-
-		-- Set up keymaps for telescope commands
+		require("telescope").load_extension("fzf")
 		local builtin = require("telescope.builtin")
 
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { noremap = true, silent = true })

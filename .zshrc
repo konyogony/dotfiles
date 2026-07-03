@@ -78,3 +78,5 @@ export PATH="$PATH:/home/kony/.local/bin"
 
 # For like ZIIT secrets, etc...
 [ -f "$HOME/.zshrc.secrets" ] && source "$HOME/.zshrc.secrets"
+
+alias nixwayclip='sudo -v && devenv processes up'

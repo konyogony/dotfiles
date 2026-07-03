@@ -25,3 +25,5 @@ vim.opt.incsearch = true -- incremental search
 
 vim.opt.langmap =
 	"ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
+
+vim.opt.termguicolors = true

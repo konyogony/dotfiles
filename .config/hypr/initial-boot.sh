@@ -8,7 +8,7 @@ icon_theme="Flat-Remix-Blue-Dark"
 cursor_theme="Bibata-Modern-Ice"
 
 mpvpaper_cmd="mpvpaper -o "no-audio --loop" '*' /home/kony/.config/hypr/wave.gif"
-swww_cmd="swww img"
+swww_cmd="awww img"
 effect="--transition-bezier .43,1.19,1,.4 --transition-fps 30 --transition-type grow --transition-pos 0.925,0.977"
 
 if [ ! -f ~/.config/hypr/.initial_startup_done ]; then

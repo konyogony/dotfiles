@@ -4,7 +4,13 @@
 		"height":25,
     "modules-left": ["hyprland/workspaces", "custom/icon", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["tray",  "hyprland/language", "pulseaudio", "cpu", "memory", "disk", "temperature"],
+    "modules-right": ["tray", "custom/wayclip", "hyprland/language", "pulseaudio", "cpu", "memory", "disk", "temperature"],
+
+"custom/wayclip": {
+    "exec": "~/.config/waybar/scripts/wayclip-status.sh",
+    "interval": 2,
+    "tooltip": false
+},
 
 	"custom/icon": {
         "exec": "~/.config/waybar/state",
