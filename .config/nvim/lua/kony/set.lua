@@ -46,3 +46,6 @@ vim.opt.termguicolors = true
 -- })
 
 vim.cmd.colorscheme("moonfly")
+
+-- Disalbe ANNOYING MENU
+vim.keymap.set("n", "<F1>", "<Nop>", { noremap = true, silent = true })
