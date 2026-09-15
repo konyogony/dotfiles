@@ -1,0 +1,12 @@
+.cache/
+.local/
+.cargo/
+.bun/
+.npm/
+.pyenv/
+.rustup/
+.nix-profile/
+.wakatime/
+.ssh/
+.nv/
+node_modules/

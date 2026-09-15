@@ -1,0 +1,86 @@
+/*
+ * Base16 Default Dark - Cleaned for Waybar
+*/
+
+@define-color base00 #151515;
+@define-color base01 #282828;
+@define-color base02 #383838;
+@define-color base03 #585858;
+@define-color base04 #b8b8b8;
+@define-color base05 #d8d8d8;
+@define-color base06 #e8e8e8;
+@define-color base07 #f8f8f8;
+@define-color base08 #ab4642;
+@define-color base09 #dc9656;
+@define-color base0A #f7ca88;
+@define-color base0B #a1b56c;
+@define-color base0C #86c1b9;
+@define-color base0D #7cafc2;
+@define-color base0E #ba8baf;
+@define-color base0F #a16946;
+
+/* Theme Mapping */
+@define-color accent @base00;
+@define-color text @base07;
+@define-color invText @base07;
+@define-color bg @base00;
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13px;
+  border-radius: 0px;
+  min-height: 0px;
+}
+
+window#waybar {
+  background-color: @accent;
+  color: @text;
+  opacity: 1;
+}
+
+#workspaces {
+  background-color: transparent;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  color: @text;
+}
+
+#workspaces button.active {
+  background-color: @accent;
+  color: @invText;
+}
+
+/* Global reset for all text/widget modules */
+#pulseaudio,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#clock,
+#tray,
+#disk,
+#language,
+#custom-icon,
+#custom-wayclip {
+  background-color: transparent;
+  color: @text;
+  margin: 0;
+}
+
+.modules-left {
+  background-color: @bg;
+  padding: 0;
+}
+
+#window {
+  color: @invText;
+  background-color: @accent;
+  padding-left: 4px;
+}
+
+.modules-right {
+  background-color: @bg;
+  padding: 0;
+}

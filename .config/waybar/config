@@ -1,0 +1,67 @@
+{
+    "spacing": 4,
+    "height": 25,
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "custom/wayclip",
+        "hyprland/language",
+        "pulseaudio",
+        "cpu",
+        "memory",
+        "disk",
+        "temperature"
+    ],
+    "custom/wayclip": {
+        "exec": "~/.config/waybar/scripts/wayclip-status.sh",
+        "interval": 2,
+        "tooltip": false
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>[{:%Y %B}]</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "[{:%H:%M:%S}]",
+        "format-alt": "[{:%Y-%m-%d}]",
+        "interval": 1
+    },
+    "cpu": {
+        "format": "[CPU:{usage}%]",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "[MEM:{percentage}%]"
+    },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "[!!{temperatureC}°C!!]",
+        "format": "[{temperatureC}°C]"
+    },
+    "battery": {
+        "format": "[BAT::{capacity}%]"
+    },
+    "pulseaudio": {
+        "format": "[VOL:{volume}%]",
+        "format-muted": "[VOL: Muted]",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+    "hyprland/language": {
+        "format": "[LANG: {}]",
+        "min-length": 5,
+        "tooltip": false
+    },
+    "disk": {
+        "path": "/",
+        "format": "[DISK:{percentage_used}%]",
+        "interval": 10,
+        "tooltip": false
+    }
+}
