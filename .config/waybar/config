@@ -18,6 +18,11 @@
         "disk",
         "temperature"
     ],
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "active-only": false,
+        "format": "{name}"
+    },
     "custom/wayclip": {
         "exec": "~/.config/waybar/scripts/wayclip-status.sh",
         "interval": 2,
