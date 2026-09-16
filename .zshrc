@@ -49,7 +49,7 @@ compdef eza=ls
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-alias nixwayclip='sudo -v && devenv processes up'
+alias nixwayclip='devenv processes up'
 
 source <(fzf --zsh)
 
@@ -58,3 +58,4 @@ source <(fzf --zsh)
 eval "$(zoxide init zsh --cmd cd)"
 
 fastfetch
+export PATH="$HOME/.cargo/bin:$PATH"

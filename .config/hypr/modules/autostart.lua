@@ -35,12 +35,10 @@ hl.on("hyprland.start", function()
 	end
 
 	os.execute("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
-	os.execute("gsettings set org.gnome.desktop.interface gtk-theme 'Andromeda-dark'")
+	os.execute("gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'")
 	os.execute("gsettings set org.gnome.desktop.interface icon-theme 'Flat-Remix-Blue-Dark'")
 	os.execute("gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'")
 	os.execute("gsettings set org.gnome.desktop.interface cursor-size 24")
-
-	--os.execute("kvantummanager --set 'Catppuccin-Mocha' >/dev/null 2>&1 &")
 
 	os.execute("sleep 1 && systemctl --user restart xdg-desktop-portal xdg-desktop-portal-hyprland &")
 end)
