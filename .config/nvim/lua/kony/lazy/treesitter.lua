@@ -1,61 +1,48 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	branch = "main",
 	build = ":TSUpdate",
 	lazy = false,
 	config = function()
-		local configs = require("nvim-treesitter")
-		configs.setup({
-			ensure_installed = {
-				"c",
-				"lua",
-				"vim",
-				"vimdoc",
-				"elixir",
-				"javascript",
-				"html",
-				"python",
-				"typescript",
-				"rust",
-				"css",
-				"java",
-				"kotlin",
-				"json",
-				"toml",
-				"yaml",
-				"markdown",
-				"markdown_inline",
-				"bash",
-				"wgsl",
-			},
-			sync_install = false,
-		})
+		local ts = require("nvim-treesitter")
+
+		local ensure_installed = {
+			"c",
+			"lua",
+			"vim",
+			"vimdoc",
+			"elixir",
+			"javascript",
+			"html",
+			"python",
+			"typescript",
+			"rust",
+			"css",
+			"java",
+			"kotlin",
+			"json",
+			"toml",
+			"yaml",
+			"markdown",
+			"markdown_inline",
+			"bash",
+			"wgsl",
+		}
+
+		local already_installed = ts.get_installed() or {}
+		local to_install = vim.iter(ensure_installed)
+			:filter(function(parser)
+				return not vim.tbl_contains(already_installed, parser)
+			end)
+			:totable()
+
+		if #to_install > 0 then
+			ts.install(to_install)
+		end
 
 		vim.api.nvim_create_autocmd("FileType", {
-			pattern = {
-				"c",
-				"lua",
-				"vim",
-				"vimdoc",
-				"elixir",
-				"javascript",
-				"html",
-				"python",
-				"typescript",
-				"rust",
-				"css",
-				"java",
-				"kotlin",
-				"json",
-				"toml",
-				"yaml",
-				"markdown",
-				"bash",
-				"wgsl",
-			},
 			callback = function()
-				vim.bo.syntax = ""
-				vim.treesitter.start()
+				pcall(vim.treesitter.start)
+
 				vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 			end,

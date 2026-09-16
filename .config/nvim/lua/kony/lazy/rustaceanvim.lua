@@ -1,12 +1,37 @@
 return {
 	"mrcjkb/rustaceanvim",
+	version = "^5",
 	lazy = false,
-	config = function()
+	init = function()
 		vim.g.rustaceanvim = {
 			server = {
-				on_attach = function(client, bufnr)
-					client.server_capabilities.semanticTokensProvider = nil
-				end,
+				settings = {
+					["rust-analyzer"] = {
+						cargo = {
+							allFeatures = true,
+							buildScripts = {
+								enable = true,
+							},
+						},
+						procMacro = {
+							enable = true,
+						},
+						completion = {
+							autoimport = {
+								enable = true,
+							},
+							privateEditable = {
+								enable = true,
+							},
+						},
+						inlayHints = {
+							chainingHints = { enable = true },
+							parameterHints = { enable = true },
+							typeHints = { enable = true },
+							closureReturnTypeHints = { enable = "always" },
+						},
+					},
+				},
 			},
 		}
 	end,
