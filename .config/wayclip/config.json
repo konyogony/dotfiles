@@ -1,0 +1,77 @@
+{
+  "v": "0.1.3",
+  "api": {
+    "enabled": true,
+    "url": "https://api.wayclip.com/"
+  },
+  "recording": {
+    "video": {
+      "length_seconds": 120,
+      "resolution": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fps": 60,
+      "codec": {
+        "H264": "NVIDIA"
+      },
+      "bitrate_kbps": 15000
+    },
+    "audio": {
+      "sample_rate_hz": 48000,
+      "codec": "Opus",
+      "microphone": {
+        "level": 1.0,
+        "node_name": "alsa_input.usb-Kingston_HyperX_Quadcast_4110-00.analog-stereo",
+        "enabled": true
+      },
+      "background": {
+        "level": 0.75,
+        "node_name": "alsa_output.usb-HP__Inc_HyperX_Cloud_Alpha_Wireless_00000001-00.analog-stereo",
+        "enabled": true
+      }
+    }
+  },
+  "output": {
+    "name_format": "wayclip_{game}_%Y-%m-%d_%H-%M-%S",
+    "clip_directory": "/home/kony/Videos/wayclip/",
+    "preview_directory": "/home/kony/Videos/wayclip/",
+    "metadata_directory": "/home/kony/Videos/wayclip/",
+    "limit": {
+      "max_size_mb": 0,
+      "max_clips": 0,
+      "prune": "Disabled"
+    },
+    "video_format": "MKV"
+  },
+  "shortcuts": {
+    "save_clip": "ALT+c",
+    "save_clip_controller": null
+  },
+  "game_discovery": {
+    "enabled": true,
+    "poll_interval_s": 20,
+    "discord_rich_presence": true
+  },
+  "notification": {
+    "message": {
+      "on_daemon_start": false,
+      "on_daemon_stop": false,
+      "on_save_success": true,
+      "on_save_error": true
+    },
+    "sounds": {
+      "on_save_success": true,
+      "on_save_error": true
+    }
+  },
+  "tray": {
+    "enabled": true,
+    "show_logo": true,
+    "show_save_clip": true,
+    "show_restart": true,
+    "show_exit": true,
+    "show_status": true,
+    "show_stats": true
+  }
+}
