@@ -59,3 +59,4 @@ eval "$(zoxide init zsh --cmd cd)"
 
 fastfetch
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:/home/kony/.local/bin"

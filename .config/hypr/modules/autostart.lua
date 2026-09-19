@@ -6,6 +6,7 @@ hl.on("hyprland.start", function()
 
 	os.execute("waybar &")
 	os.execute("swaync &")
+	os.execute("xsettingsd &")
 
 	local polkit_paths = {
 		"/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1",
@@ -35,8 +36,9 @@ hl.on("hyprland.start", function()
 	end
 
 	os.execute("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
-	os.execute("gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'")
-	os.execute("gsettings set org.gnome.desktop.interface icon-theme 'Flat-Remix-Blue-Dark'")
+	os.execute("gsettings set org.gnome.desktop.interface gtk-theme 'catppuccin-mocha-blue-standard+default'")
+	os.execute("gsettings set org.gnome.desktop.interface icon-theme 'Breeze-Dark'")
+	os.execute("gsettings set org.gnome.desktop.interface font-name 'Noto Sans 10'")
 	os.execute("gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'")
 	os.execute("gsettings set org.gnome.desktop.interface cursor-size 24")
 

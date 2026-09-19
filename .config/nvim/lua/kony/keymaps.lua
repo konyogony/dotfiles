@@ -85,4 +85,29 @@ end
 ---- QOL
 vim.keymap.set("n", "x", '"_x', { desc = "Delete character without copying" })
 
+local function get_visual_selection()
+	if vim.fn.getregion then
+		return table.concat(vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos(".")), " ")
+	end
+	local saved_reg = vim.fn.getreg("v")
+	vim.cmd([[noau normal! "vy]])
+	local text = vim.fn.getreg("v")
+	vim.fn.setreg("v", saved_reg)
+	return text:gsub("\n", " ")
+end
 
+local builtin = require("telescope.builtin")
+
+vim.keymap.set("v", "<leader>fl", function()
+	builtin.live_grep({ default_text = get_visual_selection() })
+end, { desc = "Live grep selection in project" })
+
+vim.keymap.set("v", "<leader>ff", function()
+	builtin.find_files({ default_text = get_visual_selection() })
+end, { desc = "Find files by selection" })
+
+vim.keymap.set("v", "<leader>fg", builtin.grep_string, { desc = "Grep string selection" })
+
+vim.keymap.set("v", "<leader>fh", function()
+	builtin.help_tags({ default_text = get_visual_selection() })
+end, { desc = "Help tags by selection" })
