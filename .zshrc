@@ -60,3 +60,5 @@ eval "$(zoxide init zsh --cmd cd)"
 fastfetch
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$PATH:/home/kony/.local/bin"
+
+alias debug='MANGOHUD_CONFIG="position=top-right,offset_y=50,cpu_stats,gpu_stats,ram,vram,fps,frame_timing,hud_no_margin,background_alpha=0.4,font_size=20" gamemoderun mangohud cargo run'

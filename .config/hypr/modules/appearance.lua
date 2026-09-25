@@ -94,4 +94,8 @@ hl.config({
 		warp_on_change_workspace = true,
 		no_warps = true,
 	},
+
+	render = {
+		direct_scanout = 0,
+	},
 })

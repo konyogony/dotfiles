@@ -55,8 +55,8 @@
   },
   "notification": {
     "message": {
-      "on_daemon_start": false,
-      "on_daemon_stop": false,
+      "on_daemon_start": true,
+      "on_daemon_stop": true,
       "on_save_success": true,
       "on_save_error": true
     },
