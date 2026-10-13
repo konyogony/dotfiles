@@ -111,3 +111,9 @@ vim.keymap.set("v", "<leader>fg", builtin.grep_string, { desc = "Grep string sel
 vim.keymap.set("v", "<leader>fh", function()
 	builtin.help_tags({ default_text = get_visual_selection() })
 end, { desc = "Help tags by selection" })
+
+vim.api.nvim_create_user_command("CopyPath", function()
+	local path = vim.fn.expand("%")
+	vim.fn.setreg("+", path)
+	print("Copied relative path: " .. path)
+end, {})

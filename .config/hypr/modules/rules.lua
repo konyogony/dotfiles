@@ -36,3 +36,8 @@ hl.window_rule({
 
 -- SIZES
 hl.window_rule({ match = { class = "^(xdg-desktop-portal-gtk)$" }, size = "70% 70%" })
+hl.window_rule({
+	name = "suppress-maximize-events",
+	match = { class = ".*" },
+	suppress_event = "maximize",
+})

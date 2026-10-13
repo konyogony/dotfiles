@@ -5,7 +5,7 @@ Wants=xdg-desktop-portal.service
 PartOf=graphical-session.target
 
 [Service]
-ExecStart=/home/kony/Documents/GitHub/app/target/debug/wayclip-cli-linux --daemon
+ExecStart=/home/kony/Documents/GitHub/daemon/target/release/wayclip-daemon
 Restart=on-failure
 RestartSec=5s
 Type=notify

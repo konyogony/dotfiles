@@ -21,6 +21,7 @@ return {
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				toml = { "taplo" },
+				tex = { "latexindent" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

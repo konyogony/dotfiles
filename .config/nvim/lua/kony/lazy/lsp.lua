@@ -41,6 +41,7 @@ return {
 			"ts_ls",
 			"cssls",
 			"intelephense",
+			"texlab",
 		}
 
 		require("mason-lspconfig").setup({
@@ -63,6 +64,16 @@ return {
 			capabilities = capabilities,
 			settings = {
 				css = { lint = { unknownAtRules = "ignore" } },
+			},
+		})
+
+		vim.lsp.config("texlab", {
+			capabilities = capabilities,
+			settings = {
+				texlab = {
+					build = { onSave = false },
+					forwardSearch = { executable = "" },
+				},
 			},
 		})
 
@@ -136,7 +147,12 @@ return {
 		})
 
 		for _, server_name in ipairs(servers) do
-			if server_name ~= "lua_ls" and server_name ~= "cssls" and server_name ~= "intelephense" then
+			if
+				server_name ~= "lua_ls"
+				and server_name ~= "cssls"
+				and server_name ~= "intelephense"
+				and server_name ~= "texlab"
+			then
 				vim.lsp.config(server_name, { capabilities = capabilities })
 			end
 		end

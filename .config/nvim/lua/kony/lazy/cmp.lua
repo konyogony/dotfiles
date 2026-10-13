@@ -8,6 +8,7 @@ return {
 		"hrsh7th/cmp-cmdline",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
+		"micangl/cmp-vimtex",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -17,18 +18,17 @@ return {
 
 		cmp.setup({
 			sources = {
-				{ name = "path" },
+				{ name = "vimtex" },
 				{ name = "nvim_lsp" },
 				{ name = "luasnip", keyword_length = 2 },
 				{ name = "buffer", keyword_length = 3 },
+				{ name = "path" },
 			},
 			mapping = cmp.mapping.preset.insert({
-				-- Standard selection mappings
 				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
 
-				-- Classic Tab / Shift-Tab autocomplete behavior
 				["<Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_next_item()

@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh 
+#!/usr/bin/env zsh
 
 PROCESS="wayclip-daemon"
 pid=$(pgrep -x "$PROCESS" | head -n1)
@@ -6,7 +6,12 @@ pid=$(pgrep -x "$PROCESS" | head -n1)
 if [ -n "$pid" ]; then
     read cpu ram_kb <<<$(top -b -n 1 -p "$pid" | awk -v pid="$pid" '$1 == pid {print $9, $6}')
 
-    ram_mb=$((${ram_kb//[^0-9]/} / 1024))
+    ram_mb=$(awk -v ram="$ram_kb" 'BEGIN {
+        if (ram ~ /[gG]/) { sub(/[gG].*/, "", ram); print int(ram * 1024) }
+        else if (ram ~ /[mM]/) { sub(/[mM].*/, "", ram); print int(ram) }
+        else if (ram ~ /[kK]/) { sub(/[kK].*/, "", ram); print int(ram / 1024) }
+        else { print int(ram / 1024) }
+    }')
 
     gpu_mem=$(nvidia-smi --query-compute-apps=pid,used_gpu_memory --format=csv,noheader,nounits 2>/dev/null |
         awk -F',' -v pid="$pid" '$1 == pid {gsub(/^[[:space:]]+|[[:space:]]+$/, "", $2); print $2}')

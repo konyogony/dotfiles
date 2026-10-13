@@ -40,7 +40,12 @@ return {
 		end
 
 		vim.api.nvim_create_autocmd("FileType", {
-			callback = function()
+			callback = function(args)
+				local ft = vim.bo[args.buf].filetype
+				if ft == "tex" or ft == "plaintex" then
+					return
+				end
+
 				pcall(vim.treesitter.start)
 
 				vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
